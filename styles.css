@@ -1,0 +1,104 @@
+﻿    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top">
+            <div class="brand">
+                <img alt="UG logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/LogoUGcolor.png" />
+                <div>
+                    <div class="title">Simulacro • 40 preguntas • 60 minutos</div>
+                    <div class="sub">Una por una • sin retroceder • respuesta bloqueada • orden aleatorio al reiniciar
+                    </div>
+                </div>
+            </div>
+
+            <div class="meta">
+                <div class="pill">Tiempo: <span class="timer" id="timer">60:00</span></div>
+                <div class="pill">Progreso: <span id="prog">0</span>/40</div>
+                <button class="btn primary" id="startBtn">Iniciar</button>
+                <button class="btn danger" id="finishBtn" disabled>Finalizar</button>
+                <button class="btn" id="resetBtn">Reiniciar</button>
+            </div>
+        </div>
+
+        <div class="card" id="quizCard">
+            <div class="progressbar">
+                <div id="bar"></div>
+            </div>
+            <div class="muted" id="hint" style="font-size:13px;">Presiona “Iniciar” para comenzar. Tienes 60 minutos.
+            </div>
+
+            <div id="qArea" class="hide">
+                <div class="qhead">
+                    <div>
+                        <div class="qnum" id="qNum">#1</div>
+                        <div class="qtext" id="qText"></div>
+                        <div class="muted" style="margin-top:6px;font-size:12px;">Tema: <span id="qTopic"></span></div>
+                    </div>
+                    <div class="tag" id="qTag"></div>
+                </div>
+
+                <div class="opts" id="opts"></div>
+
+                <div class="notice">
+                    Selecciona una opción. Se registrará y pasarás a la siguiente pregunta (no podrás cambiarla).
+                </div>
+            </div>
+        </div>
+
+        <div class="card hide" id="resultCard">
+            <div class="title">Resultados del simulacro</div>
+            <div class="sub">Puntaje del simulacro sobre 1000: (Correctas / 40) × 1000</div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="muted">Correctas</div>
+                    <div class="big good" id="correct">0</div>
+                </div>
+                <div class="stat">
+                    <div class="muted">Incorrectas</div>
+                    <div class="big bad" id="wrong">0</div>
+                </div>
+                <div class="stat">
+                    <div class="muted">Puntaje simulacro / 1000</div>
+                    <div class="big" id="score1000">0</div>
+                </div>
+                <div class="stat">
+                    <div class="muted">Tiempo usado</div>
+                    <div class="big" id="used">0:00</div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:14px;">
+                <div class="title" style="font-size:16px;">Cálculo de nota final</div>
+                <div class="sub">Ponderación 50% colegio y 50% examen.</div>
+
+                <div class="field">
+                    <input class="input" id="school" type="number" step="0.01" min="0" max="10"
+                        placeholder="Nota final del colegio (0–10)" />
+                    <button class="btn primary" id="calcBtn">Calcular nota final</button>
+                </div>
+
+                <div class="calc" id="calcBox"></div>
+
+                <div class="notice" style="margin-top:12px;">
+                    Fórmula usada:
+                    NotaFinal = (NotaColegio/10)×500 + (PuntajeSimulacro/1000)×500
+                    (Ej: 9.35 → 467.50 y 800 → 400.00, total 867.50)
+                </div>
+            </div>
+
+            <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px;">
+                <button class="btn" id="backBtn">Volver</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">Creado por: Kelvin Z</div>
+
+    <script src="script.js"></script>
+    </script>
+</body>
+
+</html>
